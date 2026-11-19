@@ -72,7 +72,6 @@
 
         #yes:hover {
             background-color: #7c3aed;
-            transform: scale(1.05);
         }
 
         #no {
@@ -82,7 +81,7 @@
 
         #no.moving {
             position: fixed;
-            transition: top 0.3s ease-out, left 0.3s ease-out;
+            transition: top 0.25s ease-out, left 0.25s ease-out;
             z-index: 100;
         }
 
@@ -187,7 +186,6 @@
     <audio id="musica-sucesso" src="07 Obliviate.mp3" preload="auto"></audio>
 
     <script>
-      // TROQUE PELO SEU NÚMERO COM 55 + DDD (Ex: "5571999999999")
         const seuNumeroWhatsApp = "5571996758195"; 
         let opcaoEscolhida = "qualquer filme";
         let tentativas = 0;
@@ -220,11 +218,9 @@
             btnNo.style.left = randomX + 'px';
             btnNo.style.top = randomY + 'px';
 
-            // Altera o texto do botão "Não"
             btnNo.textContent = frasesNo[tentativas % frasesNo.length];
             tentativas++;
 
-            // Faz o botão "Sim!" crescer gradualmente
             yesScale = Math.min(yesScale + 0.15, 2.0);
             btnYes.style.transform = `scale(${yesScale})`;
         }
