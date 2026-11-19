@@ -187,9 +187,20 @@
     <audio id="musica-sucesso" src="07 Obliviate.mp3" preload="auto"></audio>
 
     <script>
-        // TROQUE PELO SEU NÚMERO COM 55 + DDD (Ex: "5571999999999")
+      // TROQUE PELO SEU NÚMERO COM 55 + DDD (Ex: "5571999999999")
         const seuNumeroWhatsApp = "5571996758195"; 
         let opcaoEscolhida = "qualquer filme";
+        let tentativas = 0;
+        let yesScale = 1;
+
+        const frasesNo = [
+            "Tem certeza?",
+            "Pensa bem...",
+            "Eu pago a pipoca!",
+            "Botão errado!",
+            "Tenta o outro 😉",
+            "Não desiste de mim!"
+        ];
 
         const btnNo = document.getElementById('no');
         const btnYes = document.getElementById('yes');
@@ -208,6 +219,14 @@
 
             btnNo.style.left = randomX + 'px';
             btnNo.style.top = randomY + 'px';
+
+            // Altera o texto do botão "Não"
+            btnNo.textContent = frasesNo[tentativas % frasesNo.length];
+            tentativas++;
+
+            // Faz o botão "Sim!" crescer gradualmente
+            yesScale = Math.min(yesScale + 0.15, 2.0);
+            btnYes.style.transform = `scale(${yesScale})`;
         }
 
         btnNo.addEventListener('mouseover', moverBotao);
